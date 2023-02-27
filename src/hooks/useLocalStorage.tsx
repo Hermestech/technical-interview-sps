@@ -11,7 +11,7 @@ export const useLocalStorate = (key: string, initialValue: any) => {
                 return initialValue;
             }
         } catch (error) { 
-            console.log(error);
+            console.error(error);
             return initialValue;
         }
     });

@@ -35,7 +35,7 @@ export function LoginStructure({ setIsLogin }: LoginStructureProps) {
         e.preventDefault();
         const localUser = getLocalUser();
         if (localUser) { 
-            console.log('hay un usuario local')
+           
             const passwordBytes = new TextEncoder().encode(loginState.password);
             const hasehedPasswordBuffer = await crypto.subtle.digest('SHA-256', passwordBytes);
             const hasehedPasswordBytes = new Uint8Array(hasehedPasswordBuffer);
@@ -44,9 +44,7 @@ export function LoginStructure({ setIsLogin }: LoginStructureProps) {
                 .join('');
 
             if (localUser.username === loginState.username) {
-                console.log('el usuario local es igual al que se quiere loguear')
                 if (localUser.password === hasehedPasswordHex) {
-                    console.log('el usuario local es igual al que se quiere loguear y la contraseña es igual')
                     signup(localUser);
                 }
             }
@@ -72,7 +70,6 @@ export function LoginStructure({ setIsLogin }: LoginStructureProps) {
 
 
     if (loading) {
-        console.log('loading', loading)
         return (
         <Box
             sx={{

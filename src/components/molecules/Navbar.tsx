@@ -94,7 +94,6 @@ export function Navbar() {
               {pages.map((page) => (
                 <MenuItem key={page.title} onClick={
                   () => {
-                    console.log(page.href);
                     router.push(page.href);
                     handleCloseNavMenu();
                   }
