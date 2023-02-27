@@ -18,6 +18,8 @@ import Link from 'next/link';
 
 import { useRouter } from 'next/router';
 
+import {  useAuthContext } from '@/context/AuthContext';
+
 const pages = [{
   title: 'Products',
   href: '/',
@@ -26,6 +28,7 @@ const pages = [{
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export function Navbar() {
+  const { isAuth, logout } = useAuthContext();
   const router = useRouter();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -112,6 +115,9 @@ export function Navbar() {
                 {page.title}
               </Button>
             ))}
+            {
+              isAuth ? <Button color="secondary" onClick={() => logout()}>Logout</Button> : null
+            }
           </Box>
 
           <Box sx={{
@@ -123,19 +129,23 @@ export function Navbar() {
               xs: 'none', md: 'flex'
             },
           }}>
-            <SearchBar />
+            {
+              isAuth ? <SearchBar /> : null
+            }
           </Box>
 
             
             <Box sx={{ marginRight:'16px' }}>
-              <AlertDialogSlide />
+            {
+              isAuth ? <AlertDialogSlide /> : null  
+            }
             </Box>
                 
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/next.svg" />
+                <Avatar alt="Remy Sharp" src="/logo.png" />
               </IconButton>
             </Tooltip>
             <Menu
