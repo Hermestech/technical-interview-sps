@@ -12,7 +12,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Image from 'next/image';
+import { SearchBar } from './SearchBar';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -94,40 +94,31 @@ export function Navbar() {
               ))}
             </Menu>
           </Box>
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 12,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            <Image
-                src="/eagle_wear_logo.png"
-                alt="logo"
-                width={100}
-                height={60}
-                />
-          </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'black', display: 'block' }}
               >
                 {page}
               </Button>
             ))}
-                  </Box>
+          </Box>
+
+          <Box sx={{
+            width: '100%',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexGrow: 1,
+            display: {
+              xs: 'none', md: 'flex'
+            },
+          }}>
+            <SearchBar />
+          </Box>
+
             
             <Box sx={{ marginRight:'8px' }}>
                 <Tooltip title="Open cart">

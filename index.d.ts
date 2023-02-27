@@ -6,3 +6,7 @@ interface Product {
   description: string;
   image: string;
 }
+
+interface ICategories { 
+  [key: string]: string;
+}
