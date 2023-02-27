@@ -1,50 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+E-commerce Product Page
+Overview
+This is the README for the E-commerce Product Page project. The project consists of creating a product page for an e-commerce website using the frontend Mentor design as a reference. The styles for the project will be based on the Material UI framework, and the typography will use the Kumbh Sans font. The project will use Next.js for routing and state management, and will follow the Atomic Design methodology for component structuring.
 
-## Getting Started
+Design
+The design for the project is based on the frontend Mentor design for an e-commerce product page. The design will be used as a reference to create the project's layout. The design is available at https://www.figma.com/file/a57XoMNSG8dlomqyUNnHZk/ecommerce-product-page.
 
-First, run the development server:
+Architecture
+The project will use the Material UI framework for styling. Material UI is a framework that provides pre-designed and customizable components that can be easily integrated with React. The project will also use the Kumbh Sans font for typography. The project will follow the Atomic Design methodology for component structuring. There will be four main folders for components: atoms, molecules, organisms, and templates. The project will also use Next.js for routing and state management.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Folder Structure
+The project will follow the Atomic Design methodology for component structuring. The folder structure will be as follows:
 
-## Nombre del proyecto
-E-commerce de productos
+components/
+atoms/
+Button/
+Button.js
+Button.css
+molecules/
+Navbar/
+Navbar.js
+Navbar.css
+ProductCard/
+ProductCard.js
+ProductCard.css
+organisms/
+ProductList/
+ProductList.js
+ProductList.css
+Cart/
+Cart.js
+Cart.css
+templates/
+ProductDetail/
+ProductDetail.js
+ProductDetail.css
+Checkout/
+Checkout.js
+Checkout.css
+OrderHistory/
+OrderHistory.js
+OrderHistory.css
+Login/
+Login.js
+Login.css
+Signup/
+Signup.js
+Signup.css
+pages/
+index.js
+cart.js
+product/[id].js
+checkout.js
+order-history.js
+login.js
+signup.js
+public/
+logo.svg
+favicon.ico
+styles/
+global.css
+variables.css
+Components
+The project will use the following components:
 
-### Descripción
-Este proyecto es una aplicación web de e-commerce para la compra de productos. Se utilizó la metodología Atomic Design para estructurar los componentes y el framework de CSS MUI para acelerar el proceso de diseño y desarrollo. La aplicación se desarrolló utilizando React y Next.js.
-
-### Diseño de layout
-El diseño de la página frontend Mentor fue utilizado como referencia para la creación del proyecto. Puedes encontrar el diseño en este enlace. El diseño fue utilizado para el detalle del producto, pero los estilos se utilizaron como referencia para crear las demás vistas. Para mostrar la vista general de los productos, se utilizó una grilla para mostrar cada uno de los productos traídos por la API.
-
-##Arquitectura de estilos
-Se utilizó el framework de CSS MUI debido a que cuenta con una amplia variedad de componentes pre-diseñados y personalizables que se adaptan a las necesidades del proyecto. Además, es compatible con React, lo que facilitó la integración de componentes y el desarrollo en general.
-
-La tipografía utilizada en el proyecto es Kumbh Sans, que puedes encontrar en este enlace.
-
-La nomenclatura para los colores utilizados en el proyecto es la siguiente:
-
--[x] background-primary: #F2F2F2
--[x] background-secondary: #F6F8D
--[x] accent-primary: #FF7E1B
--[x] accent-secondary: #FFAB6A
--[x] text-color-bold: #1D2026
--[x] text-color-secondary: #68707D
--[x] La estructura de carpetas sigue la metodología Atomic Design y existen cuatro carpetas principales:
-
-## Carpeta de átomos: Contiene los elementos más básicos y simples, como botones, inputs, iconos, etc.
-## Carpeta de moléculas: Contiene componentes más complejos formados por una combinación de elementos atómicos, como un input con un botón de búsqueda.
-## Carpeta de organismos: Contiene componentes aún más complejos formados por la combinación de moléculas y átomos, como una barra de navegación con menús desplegables.
-## Carpeta de plantillas: Contiene diseños más completos y complejos, que se utilizan como base para las páginas finales de la aplicación.
-## La carpeta de páginas utiliza el sistema de enrutamiento de Next.js. Cada página tiene su propia carpeta y archivo, y contiene los componentes necesarios para mostrar la información requerida. Además, se utiliza el estado global de la aplicación para gestionar la información del usuario y del carrito de compras en todas las páginas.
-
-## Componentes
-Lista de componentes necesarios
-Navbar: Barra de navegación que contiene los links a diferentes secciones de la aplicación, como el catálogo de productos, el carrito de compras y el perfil del usuario.
-ProductCard: Tarjeta que muestra la información básica de un producto, como su imagen, nombre y precio.
-ProductList: Lista de productos que se muestra en la página principal de la aplicación.
-ProductDetail: Página que muestra la información detallada de un producto, incluyendo su descripción, imágenes y opciones de compra.
+Navbar: Barra de navegación que contendrá los links a diferentes secciones de la aplicación, como el catálogo de productos, el carrito de compras y el perfil del usuario.
+ProductCard: Tarjeta que mostrará la información básica de un producto, como su imagen, nombre y precio.
+ProductList: Lista de productos que se mostrará en la página principal de la aplicación.
+ProductDetail: Página que mostrará la información detallada de un producto, incluyendo su descripción, imágenes y opciones de compra.
+Cart: Página que mostrará los productos agregados al carrito de compr
