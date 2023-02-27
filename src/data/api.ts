@@ -21,3 +21,15 @@ export async function getProductsByCategory(category: string) {
         return [];
     }
 }
+
+export async function getProductById(id: number) {
+  try {
+  const response = await fetch(`${API_URL}/products/${id}`);
+  const data = await response.json();
+  return data;
+  }
+  catch (error) {
+    console.log(error);
+    return JSON.stringify(error);
+    }
+ }

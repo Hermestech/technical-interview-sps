@@ -7,10 +7,11 @@ export const ProductNotFound = () => (
 <Box
     sx={{
       display: 'flex',
+      flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
       width: '100%',
-      height: '80px',
+      height: '100vh',
       gridColumn: '1 / 4'
     }}
     >
