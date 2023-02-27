@@ -1,11 +1,29 @@
 import Head from 'next/head'
-import Image from 'next/image'
+import { ProductCard } from '@/components/molecules/PruductCard'
 
 import { getAllProducts } from '@/data/api'
 
+import {
+  Box,
+  Grid,
+  Typography,
+} from '@mui/material'
 
 type Props = {
   products: Product[]
+}
+
+
+const MapProductsToCards = ({ products }: Props) => { 
+  return (
+    <>
+      {
+        products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))
+      }
+    </>
+  )
 }
 
 export default function Home({ products }: Props) {
@@ -17,15 +35,27 @@ export default function Home({ products }: Props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {
-        products.map((product) => (
-          <div key={product.id}>
-            <h1>{product.title}</h1>
-            <p>{product.description}</p>
-            <p>{product.price}</p>
-          </div>
-        ))
-      }
+      <Box
+        sx={{
+          display: {
+            xs: 'flex',
+            md: 'grid',
+          },
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          placeItems: 'center',
+          flexDirection: 'column',
+          minHeight: '100vh',
+          width: '100%',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '2rem',
+          marginTop: '1rem',
+          marginBottom: '1rem',
+        }}
+      >
+
+          <MapProductsToCards products={products} />
+      </Box>
     </>
   )
 }
