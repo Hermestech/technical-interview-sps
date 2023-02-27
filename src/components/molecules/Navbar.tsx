@@ -11,13 +11,19 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { SearchBar } from './SearchBar';
+import AlertDialogSlide from './Dialog';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+import { useRouter } from 'next/router';
+
+const pages = [{
+  title: 'Products',
+  href: '/',
+}];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export function Navbar() {
+  const router = useRouter();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -88,8 +94,14 @@ export function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.title} onClick={
+                  () => {
+                    console.log(page.href);
+                    router.push(page.href);
+                    handleCloseNavMenu();
+                  }
+                }>
+                  <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -98,12 +110,10 @@ export function Navbar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'black', display: 'block' }}
-              >
-                {page}
-              </Button>
+                key={page.title}
+                color="inherit"
+                onClick={() => router.push(page.href)}
+              />
             ))}
           </Box>
 
@@ -120,19 +130,15 @@ export function Navbar() {
           </Box>
 
             
-            <Box sx={{ marginRight:'8px' }}>
-                <Tooltip title="Open cart">
-                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                        <ShoppingCartIcon />
-                    </IconButton>
-                </Tooltip>
+            <Box sx={{ marginRight:'16px' }}>
+              <AlertDialogSlide />
             </Box>
                 
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src="/next.svg" />
               </IconButton>
             </Tooltip>
             <Menu

@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 import {
     Card,
@@ -7,14 +8,16 @@ import {
     CardMedia,
     Button,
     Typography,
-    Grid
 } from '@mui/material'
+
+import { useCart } from '@/context/CartContext'
 
 type ProductCardProps = {
     product: Product
 }
 
 export const ProductCard = ({ product }: ProductCardProps) => { 
+    const { addToCart } = useCart()
     const maxDescriptionLength = 213
     const maxTitleLength = 20
 
@@ -61,8 +64,22 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                     </Typography>
                 </CardContent>
             <CardActions>
-                    <Button size="small" color='secondary'>Add to cart</Button>
-                    <Button size="small" color='secondary'>View Details</Button>
+                <Button
+                    size="small"
+                    color='secondary'
+                    onClick={() => addToCart(product)}
+                >
+                    Add to cart
+                </Button>
+                <Link href={`/${product.id}`}
+                    passHref
+                    style={{
+                        textDecoration: 'none',
+                    }}
+                >
+                    <Button size="small" color='secondary'
+                    >See Details</Button>
+                </Link>
                 </CardActions>
             </Card>
 

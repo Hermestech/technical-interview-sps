@@ -2,8 +2,10 @@ import * as React from 'react'
 
 import {
   Box,
-  CircularProgress
+    CircularProgress,
+    Typography
 } from '@mui/material'
+import { SearchBar } from '../molecules/SearchBar'
 import { ProductCard } from '@/components/molecules/PruductCard'
 import { ProductNotFound } from '../molecules/ProductNofFound'
 
@@ -36,11 +38,6 @@ export const ProductCatalog = ({ products }: Props) => {
   const shoulRenderDefaultProducts = !shouldRenderFilteredProductsBySearch && !shouldRenderFilteredProductsByCategory
     
 const shouldRenderNotFound = !loading && productsBySearch.length === 0 && !shouldRenderFilteredProductsByCategory && !shoulRenderDefaultProducts
-
-
- console.log('shouldRenderNotFound', shouldRenderNotFound)
-   
-
   return (
     <Box
       sx={{
@@ -59,7 +56,25 @@ const shouldRenderNotFound = !loading && productsBySearch.length === 0 && !shoul
         marginTop: '1rem',
         marginBottom: '1rem',
       }}
-    >
+      >
+
+          <Box
+              sx={{
+                  display: {
+                      xs: 'flex',
+                    md: 'none',
+                  },
+                  width: '100%',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexGrow: 1,
+                  position: 'sticky',
+              }}
+          >
+              <SearchBar />
+          </Box>
+        
+
       {loading && (
         <Box
           sx={{
@@ -74,7 +89,7 @@ const shouldRenderNotFound = !loading && productsBySearch.length === 0 && !shoul
           <CircularProgress color='secondary' />
         </Box>
       )}
-
+        
       {shouldRenderNotFound && <ProductNotFound />}
 
       {shouldRenderFilteredProductsBySearch && <ProductList products={productsBySearch} />}

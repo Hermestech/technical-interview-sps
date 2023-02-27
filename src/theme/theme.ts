@@ -26,7 +26,7 @@ export const myTheme = createTheme({
             main: colors.background.primary,
         },
         secondary: {
-            main: colors.accent.secondary,
+          main: colors.accent.primary,
         },
         text: {
             primary: colors.text.bold,
