@@ -12,27 +12,39 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Nombre del proyecto
+E-commerce de productos
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Descripción
+Este proyecto es una aplicación web de e-commerce para la compra de productos. Se utilizó la metodología Atomic Design para estructurar los componentes y el framework de CSS MUI para acelerar el proceso de diseño y desarrollo. La aplicación se desarrolló utilizando React y Next.js.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Diseño de layout
+El diseño de la página frontend Mentor fue utilizado como referencia para la creación del proyecto. Puedes encontrar el diseño en este enlace. El diseño fue utilizado para el detalle del producto, pero los estilos se utilizaron como referencia para crear las demás vistas. Para mostrar la vista general de los productos, se utilizó una grilla para mostrar cada uno de los productos traídos por la API.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Arquitectura de estilos
+Se utilizó el framework de CSS MUI debido a que cuenta con una amplia variedad de componentes pre-diseñados y personalizables que se adaptan a las necesidades del proyecto. Además, es compatible con React, lo que facilitó la integración de componentes y el desarrollo en general.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+La tipografía utilizada en el proyecto es Kumbh Sans, que puedes encontrar en este enlace.
 
-## Learn More
+La nomenclatura para los colores utilizados en el proyecto es la siguiente:
 
-To learn more about Next.js, take a look at the following resources:
+background-primary: #F2F2F2
+background-secondary: #F6F8D
+accent-primary: #FF7E1B
+accent-secondary: #FFAB6A
+text-color-bold: #1D2026
+text-color-secondary: #68707D
+La estructura de carpetas sigue la metodología Atomic Design y existen cuatro carpetas principales:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Carpeta de átomos: Contiene los elementos más básicos y simples, como botones, inputs, iconos, etc.
+Carpeta de moléculas: Contiene componentes más complejos formados por una combinación de elementos atómicos, como un input con un botón de búsqueda.
+Carpeta de organismos: Contiene componentes aún más complejos formados por la combinación de moléculas y átomos, como una barra de navegación con menús desplegables.
+Carpeta de plantillas: Contiene diseños más completos y complejos, que se utilizan como base para las páginas finales de la aplicación.
+La carpeta de páginas utiliza el sistema de enrutamiento de Next.js. Cada página tiene su propia carpeta y archivo, y contiene los componentes necesarios para mostrar la información requerida. Además, se utiliza el estado global de la aplicación para gestionar la información del usuario y del carrito de compras en todas las páginas.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Componentes
+Lista de componentes necesarios
+Navbar: Barra de navegación que contiene los links a diferentes secciones de la aplicación, como el catálogo de productos, el carrito de compras y el perfil del usuario.
+ProductCard: Tarjeta que muestra la información básica de un producto, como su imagen, nombre y precio.
+ProductList: Lista de productos que se muestra en la página principal de la aplicación.
+ProductDetail: Página que muestra la información detallada de un producto, incluyendo su descripción, imágenes y opciones de compra.
