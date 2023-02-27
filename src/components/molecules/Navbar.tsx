@@ -11,6 +11,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Image from 'next/image';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -98,7 +100,7 @@ export function Navbar() {
             component="a"
             href=""
             sx={{
-              mr: 2,
+              mr: 12,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontFamily: 'monospace',
@@ -108,7 +110,12 @@ export function Navbar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            <Image
+                src="/eagle_wear_logo.png"
+                alt="logo"
+                width={100}
+                height={60}
+                />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -120,7 +127,16 @@ export function Navbar() {
                 {page}
               </Button>
             ))}
-          </Box>
+                  </Box>
+            
+            <Box sx={{ marginRight:'8px' }}>
+                <Tooltip title="Open cart">
+                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                        <ShoppingCartIcon />
+                    </IconButton>
+                </Tooltip>
+            </Box>
+                
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">

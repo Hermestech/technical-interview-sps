@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import { Navbar } from '../molecules/Navbar';
 import { Footer } from '../molecules/Footer';
 
@@ -11,21 +11,19 @@ export default function MainLayout({ children }: MainLayoutProps) {
     return (
         <>
         <Navbar />
-        <Box sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            minHeight: '100vh',
-            maxWidth: '100vw',
-        }}>
-            
-            <Box sx={{ flexGrow: 1 }}>
-                {children}
-            </Box>
-            <Footer />
-        </Box>
+            <Container
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: '100vh',
+                width: '100%',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}
+            >
+            {children}
+        </Container>
+        <Footer />
         </>
     )
-
 }
