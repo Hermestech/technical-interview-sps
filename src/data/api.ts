@@ -32,4 +32,26 @@ export async function getProductById(id: number) {
     console.log(error);
     return JSON.stringify(error);
     }
- }
+}
+ 
+export async function handleLogin({
+  username,
+  password,
+}: ILoginUser) {
+  try {
+    const response = await fetch('https://fakestoreapi.com/auth/login', {
+      method: "POST",
+      body: JSON.stringify({
+        username,
+        password,
+      })
+  });
+    const data = await response.json();
+    console.log(data);
+  return data;
+  }
+  catch (error) {
+    console.log(error);
+    throw new Error('Error en la autenticación. Por favor, verifica tus credenciales e intenta de nuevo.');
+    }
+}

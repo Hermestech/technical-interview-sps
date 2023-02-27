@@ -6,7 +6,7 @@ import {
     Typography,
     Button
 } from '@mui/material'
-
+import { WithAuth } from '@/components/atoms/WithAuth'
 import { HandleItemButton } from '@/components/atoms/HandleItemButton'
 
 import { GetStaticPaths, GetStaticProps } from 'next'
@@ -20,7 +20,7 @@ interface IdPageProps {
     product?: Product
 }
 
-export default function IdPage({ product }: IdPageProps) {
+export const IdPage: React.FC<IdPageProps> = ({ product }) =>{
     const { addToCart } = useCart()
     const router = useRouter()
 
@@ -238,3 +238,5 @@ export const getStaticProps: GetStaticProps<IdPageProps> = async ({ params }) =>
 
     return { props: { product } }
 }
+
+export default WithAuth<IdPageProps>({ component: IdPage })

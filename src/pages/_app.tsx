@@ -4,17 +4,20 @@ import { ThemeProvider } from '@mui/material/styles'
 import { myTheme } from '@/theme/theme'
 import { FilteredProductsProvider } from '@/context/AppContext'
 import { CartProvider } from '@/context/CartContext'
+import { AuthProvider } from '@/context/AuthContext'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={myTheme}>
-      <FilteredProductsProvider>
+      <AuthProvider>
         <CartProvider>
-          <MainLayout>
-            <Component {...pageProps} />
-          </MainLayout>
+          <FilteredProductsProvider>
+            <MainLayout>
+              <Component {...pageProps} />
+            </MainLayout>
+          </FilteredProductsProvider>
         </CartProvider>
-      </FilteredProductsProvider>
+      </AuthProvider>
     </ThemeProvider>
   )
 }

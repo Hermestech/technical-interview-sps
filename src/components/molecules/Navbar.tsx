@@ -13,13 +13,16 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 import { SearchBar } from './SearchBar';
 import AlertDialogSlide from './Dialog';
+import Image from 'next/image';
+import Link from 'next/link';
 
 import { useRouter } from 'next/router';
 
 const pages = [{
   title: 'Products',
   href: '/',
-}];
+}
+];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export function Navbar() {
@@ -45,24 +48,16 @@ export function Navbar() {
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
+        <Toolbar disableGutters>  
+          <Link href={'/'}>
+            <Box sx={{
+              display: {
+                xs: 'none',
+                md: 'flex',
+            }, alignItems: 'center' }}>
+              <Image src="/logo.png" alt="logo" width={100} height={50} />
+            </Box>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -111,9 +106,11 @@ export function Navbar() {
             {pages.map((page) => (
               <Button
                 key={page.title}
-                color="inherit"
+                color="secondary"
                 onClick={() => router.push(page.href)}
-              />
+              >
+                {page.title}
+              </Button>
             ))}
           </Box>
 
